@@ -105,22 +105,17 @@ The app follows **MVVM architecture** to ensure:
 <table align="center">
   <tr>
     <td align="center">
-      <img src="screenshot![WhatsApp Image 2026-03-27 at 12 11 37 PM](https://github.com/user-attachments/assets/30d1708d-9378-41e0-8247-eec9aa039ad7)
-s/image1.png" width="220"/><br/>
+      <img src="https://github.com/user-attachments/assets/30d1708d-9378-41e0-8247-eec9aa039ad7" width="220"/><br/>
       <b>Dial Pad</b>
     </td>
 
     <td align="center">
-      <img src="screenshots/ima![WhatsApp Image 2026-03-27 at 12 11 38 PM](https://github.com/user-attachments/assets/1a297280-c7d9-4661-a68a-bb698ddd7b0e)
-ge2.png" width="220"/><br/>
+      <img src="https://github.com/user-attachments/assets/1a297280-c7d9-4661-a68a-bb698ddd7b0e" width="220"/><br/>
       <b>Incoming Call</b>
     </td>
 
-   
-
     <td align="center">
-      <img src="screenshots![WhatsApp Image 2026-03-25 at 8 27 33 PM](https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92)
-/image4.png" width="220"/><br/>
+      <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
       <b>Active Call</b>
     </td>
   </tr>
