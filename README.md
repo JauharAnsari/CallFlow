@@ -119,11 +119,13 @@ The app follows **MVVM architecture** to ensure:
     </td>
 
     <table align="center">
-     <tr>
-      <td align="center">
-       <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
       <b>Active Call</b>
     </td>
+  </tr>
+</table>
   </tr>
 </table>
   </tr>
