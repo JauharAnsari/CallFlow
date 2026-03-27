@@ -60,7 +60,9 @@ class MainActivity : ComponentActivity() {
                 )
 
                 // Mocking simple DI
-                val dialerViewModel: DialerViewModel = viewModel()
+                val dialerViewModel: DialerViewModel = viewModel {
+                    DialerViewModel(ContactsRepository(this@MainActivity))
+                }
                 val contactsViewModel: ContactsViewModel = viewModel {
                     ContactsViewModel(ContactsRepository(this@MainActivity))
                 }

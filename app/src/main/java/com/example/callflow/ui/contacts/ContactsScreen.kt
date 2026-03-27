@@ -21,43 +21,58 @@ fun ContactsScreen(
     viewModel: ContactsViewModel,
     onContactClick: (String) -> Unit
 ) {
-    val contacts by viewModel.contacts.collectAsState()
+    val filteredContacts by viewModel.filteredContacts.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
-    val filteredContacts = viewModel.getFilteredContacts()
 
     LaunchedEffect(Unit) {
         viewModel.loadContacts()
     }
 
-    Column(modifier = Modifier.fillMaxSize()) {
-        TextField(
-            value = searchQuery,
-            onValueChange = { viewModel.onSearchQueryChange(it) },
+    Scaffold { padding ->
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            placeholder = { Text("Search contacts") },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-            singleLine = true,
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surface
-            )
-        )
-
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(bottom = 80.dp) // Space for bottom nav
+                .fillMaxSize()
+                .padding(padding)
         ) {
-            items(filteredContacts) { contact ->
-                ContactItem(contact = contact) {
-                    onContactClick(contact.number)
-                }
-                HorizontalDivider(
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    thickness = 0.5.dp,
-                    color = MaterialTheme.colorScheme.outlineVariant
+            TextField(
+                value = searchQuery,
+                onValueChange = { viewModel.onSearchQueryChange(it) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                placeholder = { Text("Search contacts") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                singleLine = true,
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface
                 )
+            )
+
+            if (isLoading && filteredContacts.isEmpty()) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = 80.dp) // Space for bottom nav
+                ) {
+                    items(filteredContacts) { contact ->
+                        ContactItem(contact = contact) {
+                            onContactClick(contact.number)
+                        }
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outlineVariant
+                        )
+                    }
+                }
             }
         }
     }

@@ -26,6 +26,7 @@ fun DialerScreen(
     onCallClick: (String) -> Unit
 ) {
     val phoneNumber by viewModel.phoneNumber.collectAsState()
+    val matchedName by viewModel.matchedName.collectAsState()
     val isCallActive by viewModel.isCallActive.collectAsState()
     val callDuration by viewModel.callDuration.collectAsState()
 
@@ -63,7 +64,16 @@ fun DialerScreen(
                 style = MaterialTheme.typography.displaySmall,
                 maxLines = 1,
                 fontWeight = FontWeight.Light,
-                modifier = Modifier.padding(vertical = 8.dp)
+                modifier = Modifier.padding(top = 8.dp)
+            )
+
+            // Show Matched Contact Name
+            Text(
+                text = matchedName ?: " ",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.secondary,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.padding(bottom = 8.dp)
             )
         }
 

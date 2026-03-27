@@ -3,14 +3,24 @@ package com.example.callflow.repository
 import android.content.Context
 import android.provider.ContactsContract
 import com.example.callflow.data.Contact
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class ContactsRepository(private val context: Context) {
-    fun fetchContacts(): List<Contact> {
+    suspend fun fetchContacts(): List<Contact> = withContext(Dispatchers.IO) {
         val contacts = mutableListOf<Contact>()
         val contentResolver = context.contentResolver
+        
+        // Define projection to fetch only necessary columns
+        val projection = arrayOf(
+            ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
+            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+            ContactsContract.CommonDataKinds.Phone.NUMBER
+        )
+
         val cursor = contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-            null,
+            projection,
             null,
             null,
             ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC"
@@ -23,11 +33,18 @@ class ContactsRepository(private val context: Context) {
 
             while (it.moveToNext()) {
                 val name = it.getString(nameIndex) ?: "Unknown"
-                val number = it.getString(numberIndex) ?: ""
+                var number = it.getString(numberIndex) ?: ""
                 val id = it.getString(idIndex) ?: ""
-                contacts.add(Contact(id, name, number))
+                
+                // Basic normalization for comparison (remove spaces, etc.)
+                val normalizedNumber = number.replace(Regex("[^0-9+]"), "")
+                if (normalizedNumber.isNotEmpty()) {
+                    contacts.add(Contact(id, name, number))
+                }
             }
         }
-        return contacts
+        
+        // Filter out duplicates (same name and primary number)
+        contacts.distinctBy { "${it.name}|${it.number.replace(Regex("[^0-9+]"), "")}" }
     }
 }
