@@ -109,15 +109,23 @@ The app follows **MVVM architecture** to ensure:
       <b>Dial Pad</b>
     </td>
 
+   ## 📸 Screenshots
+
+<table align="center">
+  <tr>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/1a297280-c7d9-4661-a68a-bb698ddd7b0e" width="220"/><br/>
       <b>Incoming Call</b>
     </td>
 
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
+    <table align="center">
+     <tr>
+      <td align="center">
+       <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
       <b>Active Call</b>
     </td>
+  </tr>
+</table>
   </tr>
 </table>
 
