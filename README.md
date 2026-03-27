@@ -118,7 +118,7 @@ The app follows **MVVM architecture** to ensure:
       <b>Incoming Call</b>
     </td>
 
-    <table align="center">
+   
   <tr>
     <td align="center">
       <img src="https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92" width="220"/><br/>
