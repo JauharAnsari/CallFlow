@@ -105,22 +105,22 @@ The app follows **MVVM architecture** to ensure:
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/015d55b6-a404-439d-841c-22e3c0b2a0a6" width="220"/><br/>
+      <img src="screenshot![WhatsApp Image 2026-03-27 at 12 11 37 PM](https://github.com/user-attachments/assets/30d1708d-9378-41e0-8247-eec9aa039ad7)
+s/image1.png" width="220"/><br/>
       <b>Dial Pad</b>
     </td>
 
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/d2b0af5e-6548-4f59-82dd-75f7bee6a6f9" width="220"/><br/>
+      <img src="screenshots/ima![WhatsApp Image 2026-03-27 at 12 11 38 PM](https://github.com/user-attachments/assets/1a297280-c7d9-4661-a68a-bb698ddd7b0e)
+ge2.png" width="220"/><br/>
       <b>Incoming Call</b>
     </td>
 
-    <td align="center">
-      <img src="https://github.com/user-attachments/assets/eb017e0e-87d2-4e32-ab31-d431de57bb28" width="220"/><br/>
-      <b>Contacts / Logs</b>
-    </td>
+   
 
     <td align="center">
-      <img src="https://github.com/user-attachments/assets/0cc904f5-99bf-445e-b338-5e25af480bda" width="220"/><br/>
+      <img src="screenshots![WhatsApp Image 2026-03-25 at 8 27 33 PM](https://github.com/user-attachments/assets/964f8395-326b-4811-a149-0b7387932c92)
+/image4.png" width="220"/><br/>
       <b>Active Call</b>
     </td>
   </tr>
